@@ -1,0 +1,60 @@
+﻿<Window x:Class="RiskTask1.Views.CreateWorkerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RiskTask1.Views"
+        mc:Ignorable="d"
+        Title="CreateWorkerView" Height="auto" Width="auto">
+    <Grid  x:Name="gEditClient" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="First Name : " Margin="0 0 110 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbName" Width="180" HorizontalAlignment="Right"  Text="{Binding NewWorker.FirstName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Last Name : " Margin="0 0 112 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbSurName" Width="180" HorizontalAlignment="Right"  Text="{Binding NewWorker.LastName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock  Text="Pin : " Margin="0 0 175 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbEmail" Width="180" HorizontalAlignment="Right" Text="{Binding NewWorker.Pin}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Login : " Margin="0 0 156 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbPhone" Width="180" HorizontalAlignment="Right" Text="{Binding NewWorker.LogIn}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Extension : " Margin="0 0 122 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbSecondNote2" Width="180" HorizontalAlignment="Right" Text="{Binding NewWorker.Extension}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Username : " Margin="0 0 118 0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbUsername" Width="180" HorizontalAlignment="Right" Text="{Binding NewWorker.UserName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Password : " Margin="0 0 123 0" HorizontalAlignment="Left"/>
+                <PasswordBox x:Name="tbPassword" Width="180" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Password Again : " Margin="0 0 67 0" HorizontalAlignment="Left"/>
+                <PasswordBox x:Name="tbPasswordAgain" Width="180" HorizontalAlignment="Right"/>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
+            <Button x:Name="btnCancel" Width="120" Height="30"
+                    Content="Cancel" Margin="15 0 30 0"
+                    Click="btnCancel_Click"/>
+            <Button x:Name="btnSaveData" Width="120" Height="30"
+                    Content="Save" Margin="55 0 0 0"
+                    Command="{Binding AddWorkerCommand}" Click="btnSaveData_Click"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="RiskTask1.Views.CreateCommentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RiskTask1.Views"
+        mc:Ignorable="d"
+        Title="CreateCommentView" Height="383" Width="426">
+    <Grid  x:Name="gEditClient" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Grid.Row="0" Margin="10">
+                <TextBlock Text="Comment " HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                <TextBox x:Name="tbName" Width="290" Height="100" HorizontalAlignment="Center" Margin="5" Text="{Binding NewComment.CommentText}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Margin="10">
+                <CheckBox x:Name="tbAcceptid" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" IsChecked="{Binding NewComment.IsAccepted}"/>
+                <TextBlock Text="Acceptid " HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
+            <Button x:Name="btnCancel" Width="120" Height="30"
+                    Content="Cancel" Margin="15 0 30 0"
+                    Click="btnCancel_Click"/>
+            <Button x:Name="btnSaveData" Width="120" Height="30"
+                    Content="Save" Margin="25 0 0 0"
+                    Command="{Binding AddCommentCommand}" Click="btnSaveData_Click"/>
+        </StackPanel>
+    </Grid>
+
+</Window>
