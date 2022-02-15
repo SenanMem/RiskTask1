@@ -56,6 +56,7 @@ namespace RiskTask1.ViewModels
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Load();
+            var a = Comments;
         }
 
         public void PublishComment(Comment obj)
@@ -69,6 +70,7 @@ namespace RiskTask1.ViewModels
 
         private void Load()
         {
+            var temp = new List<Comment>();
             using (var trx = _unitOfWork.DbContext.Database.BeginTransaction())
             {
                 try
@@ -77,7 +79,7 @@ namespace RiskTask1.ViewModels
                     {
                         try
                         {
-                            Comments = _unitOfWork.DbContext.Comments.Include(x => x.Notification).Where(z => z.CommentText == null && z.Notification.WorkerId == item.Id).ToList();
+                            temp.AddRange(_unitOfWork.DbContext.Comments.Include(x => x.Notification).Where(z => z.CommentText == null && z.Notification.WorkerId == item.Id).ToList());
                             trx.Commit();
                         }
                         catch (Exception)
@@ -91,6 +93,7 @@ namespace RiskTask1.ViewModels
 
                 }
             }
+            Comments = temp;
         }
 
 
